@@ -27,7 +27,8 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-                    sh "docker build -t agileforreal/calculator ."
+               // build our docker image
+        			myImg = docker.build 'agileforreal/calculator'
                }
           }
           stage("Docker push") {
