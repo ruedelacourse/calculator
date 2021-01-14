@@ -1,4 +1,10 @@
 pipeline {
+
+	environment {
+		imagename = 'agileforreal/calculator'
+		dockerImage = ''
+	}
+
     agent any
 
     stages {
@@ -20,8 +26,10 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-               // build our docker image
-        			myImg = docker.build 'agileforreal/calculator'
+               		script {
+               			// build our docker image
+        				dockerImage = docker.build imagename
+        			}
                }
           }
           stage("Docker push") {
