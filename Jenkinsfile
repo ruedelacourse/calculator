@@ -28,13 +28,13 @@ pipeline {
                steps {
                		script {
                			// build our docker image
-        				sh "/usr/local/bin/docker build -t agileforreal/calculator ."
+        				sh "/usr/local/bin/docker build -t agileforreal/calculator:caching ."
         			}
                }
           }
           stage("Docker push") {
                steps {
-                    sh "/usr/local/bin/docker push agileforreal/calculator"
+                    sh "/usr/local/bin/docker push agileforreal/calculator:caching"
                }
           }
     }
