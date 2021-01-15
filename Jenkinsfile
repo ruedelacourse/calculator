@@ -28,7 +28,7 @@ pipeline {
                steps {
                		script {
                			// build our docker image
-        				sh "/usr/local/bin/docker build agileforreal/calculator"
+        				sh "/usr/local/bin/docker build -t agileforreal/calculator ."
         			}
                }
           }
