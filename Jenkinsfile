@@ -28,13 +28,13 @@ pipeline {
                steps {
                		script {
                			// build our docker image
-        				dockerImage = docker.build imagename
+        				sh "/usr/local/bin/docker build agileforreal/calculator"
         			}
                }
           }
           stage("Docker push") {
                steps {
-                    sh "docker push agileforreal/calculator"
+                    sh "/usr/local/bin/docker push agileforreal/calculator"
                }
           }
     }
